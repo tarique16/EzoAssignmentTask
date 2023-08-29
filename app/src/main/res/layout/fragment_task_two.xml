@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.TaskTwoFragment">
+
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#6200EE"
+        app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
+        app:layout_constraintEnd_toEndOf="@id/tv_toolbar_title"
+        app:layout_constraintStart_toStartOf="@id/tv_toolbar_title"
+        app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:contentDescription="@string/task_one_title"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
+        app:layout_constraintEnd_toStartOf="@id/tv_toolbar_title"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_8sdp"
+        android:padding="@dimen/_12sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/task_two_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_weight="9"
+        app:layout_constraintStart_toEndOf="@id/iv_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--<ImageView
+        android:id="@+id/iv_filter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/tv_toolbar_title"
+        app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />-->
+
+
+    <ImageView
+        android:id="@+id/iv_two_thousand"
+        android:layout_width="@dimen/_124sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:contentDescription="@string/task_two_title"
+        android:src="@drawable/ic_two_thousand_note"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_one" />
+
+    <TextView
+        android:id="@+id/tv_two_thousand_qty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="end"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_two_thousand"
+        app:layout_constraintEnd_toStartOf="@id/et_two_thousand"
+        app:layout_constraintStart_toEndOf="@id/iv_two_thousand"
+        app:layout_constraintTop_toTopOf="@id/iv_two_thousand" />
+
+    <EditText
+        android:id="@+id/et_two_thousand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="@id/iv_two_thousand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_two_thousand_qty"
+        app:layout_constraintTop_toTopOf="@id/iv_two_thousand" />
+
+    <ImageView
+        android:id="@+id/iv_five_hundred"
+        android:layout_width="@dimen/_124sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:contentDescription="@string/task_two_title"
+        android:src="@drawable/ic_five_hundred_note"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_two_thousand" />
+
+    <TextView
+        android:id="@+id/tv_five_hundred_qty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="end"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_five_hundred"
+        app:layout_constraintEnd_toStartOf="@id/et_five_hundred"
+        app:layout_constraintStart_toEndOf="@id/iv_five_hundred"
+        app:layout_constraintTop_toTopOf="@id/iv_five_hundred" />
+
+    <EditText
+        android:id="@+id/et_five_hundred"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="@id/iv_five_hundred"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_five_hundred_qty"
+        app:layout_constraintTop_toTopOf="@id/iv_five_hundred" />
+
+    <ImageView
+        android:id="@+id/iv_two_hundred"
+        android:layout_width="@dimen/_124sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:contentDescription="@string/task_two_title"
+        android:src="@drawable/ic_two_hundred_note"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_five_hundred" />
+
+    <TextView
+        android:id="@+id/tv_two_hundred_qty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="end"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_two_hundred"
+        app:layout_constraintEnd_toStartOf="@id/et_two_hundred"
+        app:layout_constraintStart_toEndOf="@id/iv_two_hundred"
+        app:layout_constraintTop_toTopOf="@id/iv_two_hundred" />
+
+    <EditText
+        android:id="@+id/et_two_hundred"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="@id/iv_two_hundred"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_two_hundred_qty"
+        app:layout_constraintTop_toTopOf="@id/iv_two_hundred" />
+
+    <ImageView
+        android:id="@+id/iv_one_hundred"
+        android:layout_width="@dimen/_124sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:contentDescription="@string/task_two_title"
+        android:src="@drawable/ic_hundred_note"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_two_hundred" />
+
+    <TextView
+        android:id="@+id/tv_one_hundred_qty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="end"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_one_hundred"
+        app:layout_constraintEnd_toStartOf="@id/et_one_hundred"
+        app:layout_constraintStart_toEndOf="@id/iv_one_hundred"
+        app:layout_constraintTop_toTopOf="@id/iv_one_hundred" />
+
+    <EditText
+        android:id="@+id/et_one_hundred"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="@id/iv_one_hundred"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_one_hundred_qty"
+        app:layout_constraintTop_toTopOf="@id/iv_one_hundred" />
+
+    <TextView
+        android:id="@+id/tv_total_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Total"
+        android:textSize="@dimen/_18sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/iv_one_hundred"
+        app:layout_constraintStart_toStartOf="@id/iv_one_hundred"
+        app:layout_constraintTop_toBottomOf="@id/iv_one_hundred" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tv_total_title"
+        app:layout_constraintEnd_toEndOf="@id/tv_one_hundred_qty"
+        app:layout_constraintStart_toEndOf="@id/tv_total_title"
+        app:layout_constraintTop_toTopOf="@id/tv_total_title" />
+
+    <TextView
+        android:id="@+id/tv_deposit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#286090"
+        android:gravity="center"
+        android:text="Deposit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tv_total_title"
+        app:layout_constraintEnd_toEndOf="@id/et_one_hundred"
+        app:layout_constraintStart_toStartOf="@id/et_one_hundred"
+        app:layout_constraintTop_toTopOf="@id/tv_total_title" />
+
+    <EditText
+        android:id="@+id/et_withdraw_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:hint="Enter Amount to withdraw"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        app:layout_constraintEnd_toStartOf="@id/tv_withdraw"
+        app:layout_constraintStart_toStartOf="@id/tv_total_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_title" />
+
+    <TextView
+        android:id="@+id/tv_withdraw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#449D44"
+        android:gravity="center"
+        android:text="Withdraw!"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/et_withdraw_amount"
+        app:layout_constraintEnd_toEndOf="@id/tv_deposit"
+        app:layout_constraintStart_toStartOf="@id/tv_deposit"
+        app:layout_constraintTop_toTopOf="@id/et_withdraw_amount" />
+
+    <TextView
+        android:id="@+id/tv_log_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Log"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/tv_withdraw"
+        app:layout_constraintStart_toStartOf="@id/et_withdraw_amount"
+        app:layout_constraintTop_toBottomOf="@id/et_withdraw_amount" />
+
+    <TextView
+        android:id="@+id/tv_withdraw_log"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@drawable/rectangle_border"
+        android:padding="@dimen/_6sdp"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/tv_log_title"
+        app:layout_constraintStart_toStartOf="@id/tv_log_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_log_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_logger"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="true"
+        android:paddingBottom="@dimen/_18sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="@id/tv_log_title"
+        app:layout_constraintStart_toStartOf="@id/tv_log_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_withdraw_log"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:itemCount="2"
+        tools:listitem="@layout/recycler_item_task_two_logs" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EzoAssignmentTask</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="task_one_title">Task One Solution</string>
+    <string name="task_two_title">Task Two Solution</string>
+</resources>

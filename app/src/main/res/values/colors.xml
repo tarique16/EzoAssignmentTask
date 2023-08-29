@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#00DE7A</color>
+    <color name="log_red_text">#B35A59</color>
+    <color name="log_green_text">#3C763D</color>
+    <color name="log_blue_text">#31708F</color>
+    <color name="log_red">#F8F0F2</color>
+    <color name="log_green">#F0F6ED</color>
+    <color name="log_blue">#EEF3F6</color>
+</resources>

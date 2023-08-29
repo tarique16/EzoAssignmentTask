@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.ezoassignmenttask.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_taskOneFragment"
+            app:destination="@id/taskOneFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_taskTwoFragment"
+            app:destination="@id/taskTwoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskOneFragment"
+        android:name="com.example.ezoassignmenttask.fragment.TaskOneFragment"
+        android:label="fragment_task_one"
+        tools:layout="@layout/fragment_task_one">
+        <action
+            android:id="@+id/action_taskOneFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskTwoFragment"
+        android:name="com.example.ezoassignmenttask.fragment.TaskTwoFragment"
+        android:label="fragment_task_two"
+        tools:layout="@layout/fragment_task_two">
+        <action
+            android:id="@+id/action_taskTwoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
