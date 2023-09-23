@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.MainFragment">
 
     <View
@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/_8sdp"
-        android:padding="@dimen/_8sdp"
+        android:padding="@dimen/_12sdp"
         android:paddingHorizontal="@dimen/_8sdp"
         android:text="@string/app_name"
         android:textColor="@color/white"
@@ -51,6 +51,7 @@
         android:id="@+id/tv_task_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:background="@color/green"
         android:padding="@dimen/_8sdp"
         android:text="@string/task_one_title"
@@ -60,13 +61,13 @@
         app:layout_constraintBottom_toTopOf="@id/tv_task_two"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="@dimen/_8sdp"
         app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/tv_task_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_48sdp"
         android:background="@color/green"
         android:padding="@dimen/_8sdp"
         android:text="@string/task_two_title"
@@ -77,7 +78,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_48sdp"
         app:layout_constraintVertical_weight="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
