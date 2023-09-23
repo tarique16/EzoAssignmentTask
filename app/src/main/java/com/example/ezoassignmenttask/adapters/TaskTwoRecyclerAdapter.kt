@@ -1,6 +1,5 @@
 package com.example.ezoassignmenttask.adapters
 
-import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ezoassignmenttask.R
 import com.example.ezoassignmenttask.databinding.RecyclerItemTaskTwoLogsBinding
 import com.example.ezoassignmenttask.models.Logs
-
 
 class TaskTwoRecyclerAdapter : ListAdapter<Logs, TaskTwoRecyclerAdapter.LogsData>(
     object : DiffUtil.ItemCallback<Logs>() {
@@ -42,19 +40,19 @@ class TaskTwoRecyclerAdapter : ListAdapter<Logs, TaskTwoRecyclerAdapter.LogsData
                     tvLog.setTextColor(colorGreen)
 
                     background.let {
-                        it.setStroke(2/*.dpToPx(tvLog.resources)*/, colorGreen)
+                        it.setStroke(2, colorGreen)
                         it.setColor(setColor(R.color.log_green))
                     }
                 } else if (item.message.contains("Deposit")) {
                     tvLog.setTextColor(colorBlue)
                     background.let {
-                        it.setStroke(2/*.dpToPx(tvLog.resources)*/, colorBlue)
+                        it.setStroke(2, colorBlue)
                         it.setColor(setColor(R.color.log_blue))
                     }
                 } else {
                     tvLog.setTextColor(colorRed)
                     background.let {
-                        it.setStroke(2/*.dpToPx(tvLog.resources)*/, colorRed)
+                        it.setStroke(2, colorRed)
                         it.setColor(setColor(R.color.log_red))
                     }
                 }
@@ -63,11 +61,6 @@ class TaskTwoRecyclerAdapter : ListAdapter<Logs, TaskTwoRecyclerAdapter.LogsData
         }
 
     }
-
-//    fun Int.dpToPx(res:Resources): Int {
-//        val scale = res.displayMetrics.density
-//        return (this * scale + 0.5f).toInt()
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogsData {
         return LogsData(

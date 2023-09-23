@@ -10,14 +10,13 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
 class TaskTwoViewModel : ViewModel() {
-    // Create a MutableLiveData to hold the deposit log data
+
     private val atm = ATM()
-//    private val depositLog = mutableListOf<String>()
-//    private val withdrawLog = mutableListOf<String>()
-     val mainLogs = ArrayList<String>()
     private val _totalAmount = MutableLiveData<Int>()
     val denomination: MutableLiveData<List<Denomination>> = MutableLiveData()
     val totalAmount: LiveData<Int> get() = _totalAmount
+    private val _logData = MutableLiveData<List<Logs>>()
+    val logData: LiveData<List<Logs>> get() = _logData
 
     init {
         denomination.postValue(
@@ -47,14 +46,20 @@ class TaskTwoViewModel : ViewModel() {
         _totalAmount.postValue(amount)
     }
 
+    private fun addLog(log: String) {
+        val logs = _logData.value?.toMutableList() ?: mutableListOf()
+        logs.add(Logs(log))
+        _logData.value = logs
+    }
+
     suspend fun deposit(notes: Map<Int, Int>) {
         atm.deposit(notes)
         val totalAmountDeposited = atm.calculateTotalDepositedAmount()
         setDenomination(atm.getDenominations())
         val message = "Deposited[$totalAmountDeposited] \n${
-            notes.entries.joinToString { "${it.key}: ${it.value}" }}"
-//        depositLog.add(message)
-        mainLogs.add(message)
+            notes.entries.joinToString { "${it.key}: ${it.value}" }
+        }"
+        addLog(message)
         val res = Logger.DepositLogger
         _uiEvent.emit(res)
         setTotalAmount(totalAmountDeposited)
@@ -66,13 +71,12 @@ class TaskTwoViewModel : ViewModel() {
             val message = "Withdrawn[$amount] \n${
                 withdrawnDenominations.entries.joinToString { "${it.key}: ${it.value}" }
             }"
-//            withdrawLog.add(message)
-            mainLogs.add(message)
+            addLog(message)
             val res = Logger.WithdrawLogger
             _uiEvent.emit(res)
         } else {
             val message = "Insufficient funds or denominations not available."
-            mainLogs.add(message)
+            addLog(message)
             _uiEvent.emit(Logger.ErrorLogger)
         }
         setDenomination(atm.getDenominations())

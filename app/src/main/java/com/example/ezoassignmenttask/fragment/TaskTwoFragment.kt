@@ -1,22 +1,19 @@
 package com.example.ezoassignmenttask.fragment
 
-import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.ezoassignmenttask.R
 import com.example.ezoassignmenttask.adapters.TaskTwoRecyclerAdapter
 import com.example.ezoassignmenttask.databinding.FragmentTaskTwoBinding
-import com.example.ezoassignmenttask.models.Logs
 import com.example.ezoassignmenttask.viewModel.TaskTwoViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,44 +35,37 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
         return binding.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[TaskTwoViewModel::class.java]
         setListeners()
         setZeroValues()
         observers()
+        recyclerAdapter = TaskTwoRecyclerAdapter()
+        binding.rvLogger.adapter = recyclerAdapter
     }
 
     private fun observers() {
-        recyclerAdapter = TaskTwoRecyclerAdapter()
-        binding.rvLogger.adapter = recyclerAdapter
+
+        viewModel.logData.observe(viewLifecycleOwner) { logList ->
+            recyclerAdapter.submitList(logList.reversed())
+        }
         CoroutineScope(Dispatchers.Main).launch {
             viewModel.uiEvents.collectLatest { event ->
-                val newList = viewModel.mainLogs
                 when (event) {
                     is TaskTwoViewModel.Logger.ErrorLogger -> {
-                        recyclerAdapter.notifyItemInserted(0)
                         binding.rvLogger.smoothScrollToPosition(0)
                         openKeyboard(binding.etWithdrawAmount)
                     }
 
                     is TaskTwoViewModel.Logger.DepositLogger -> {
-                        recyclerAdapter.notifyItemInserted(0)
                         binding.rvLogger.smoothScrollToPosition(0)
                     }
 
                     is TaskTwoViewModel.Logger.WithdrawLogger -> {
-                        recyclerAdapter.notifyItemInserted(0)
                         binding.rvLogger.smoothScrollToPosition(0)
                     }
                 }
-                val loggers = newList.map { Logs(it) }
-                recyclerAdapter.submitList(loggers.reversed())
             }
         }
 
@@ -114,15 +104,17 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
 
     private fun hideKeyboard() {
         val inputMethodManager =
-            requireContext().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            requireActivity().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
     private fun openKeyboard(editText: EditText) {
-        editText.requestFocus()
-        val inputMethodManager =
-            requireContext().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
+        editText.apply {
+            requestFocus()
+            val inputMethodManager =
+                context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+        }
     }
 
     private fun setZeroValues() {
@@ -148,7 +140,7 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
                         200 to etTwoHundred.text.toString().toInt(),
                         100 to etOneHundred.text.toString().toInt()
                     )
-                    CoroutineScope(Dispatchers.Main).launch { viewModel.deposit(notes) }
+                    viewModel.viewModelScope.launch { viewModel.deposit(notes) }
                     hideKeyboard()
                 }
 
@@ -156,7 +148,7 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
                     val amount =
                         if (etWithdrawAmount.text.isEmpty()) 0 else etWithdrawAmount.text.toString()
                             .toInt()
-                    CoroutineScope(Dispatchers.Main).launch { viewModel.withdraw(amount) }
+                    viewModel.viewModelScope.launch { viewModel.withdraw(amount) }
                     etWithdrawAmount.setText("")
                     hideKeyboard()
                 }
@@ -164,7 +156,3 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
         }
     }
 }
-
-
-
-
