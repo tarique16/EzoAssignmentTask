@@ -34,7 +34,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/_8sdp"
-        android:padding="@dimen/_8sdp"
+        android:padding="@dimen/_12sdp"
         android:paddingHorizontal="@dimen/_8sdp"
         android:text="@string/task_one_title"
         android:textColor="@color/white"
@@ -63,13 +63,13 @@
         android:id="@+id/rv_contents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/_16sdp"
-        android:clipToPadding="false"
         android:layout_marginEnd="@dimen/_6sdp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/_16sdp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/view_one"
         app:spanCount="2"
-        tools:listitem="@layout/recycle_item_task_one"
-        app:layout_constraintTop_toBottomOf="@id/view_one"/>
+        tools:listitem="@layout/recycle_item_task_one" />
 
     <TextView
         android:id="@+id/text"

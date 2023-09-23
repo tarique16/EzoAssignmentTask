@@ -1,17 +1,24 @@
 package com.example.ezoassignmenttask.fragment
 
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.ezoassignmenttask.R
+import com.example.ezoassignmenttask.Utility.Companion.setColor
 import com.example.ezoassignmenttask.adapters.TaskTwoRecyclerAdapter
 import com.example.ezoassignmenttask.databinding.FragmentTaskTwoBinding
 import com.example.ezoassignmenttask.viewModel.TaskTwoViewModel
@@ -26,6 +33,12 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
     private val binding get() = _binding!!
     private lateinit var viewModel: TaskTwoViewModel
     private lateinit var recyclerAdapter: TaskTwoRecyclerAdapter
+    private val drawable: Drawable? by lazy {
+        ResourcesCompat.getDrawable(resources, R.drawable.rectangle_border, null)
+    }
+    private val backgroundDrawable: GradientDrawable? by lazy {
+        drawable?.constantState?.newDrawable()?.mutate() as? GradientDrawable
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +52,6 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[TaskTwoViewModel::class.java]
         setListeners()
-        setZeroValues()
         observers()
         recyclerAdapter = TaskTwoRecyclerAdapter()
         binding.rvLogger.adapter = recyclerAdapter
@@ -50,12 +62,19 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
         viewModel.logData.observe(viewLifecycleOwner) { logList ->
             recyclerAdapter.submitList(logList.reversed())
         }
+
         CoroutineScope(Dispatchers.Main).launch {
             viewModel.uiEvents.collectLatest { event ->
                 when (event) {
                     is TaskTwoViewModel.Logger.ErrorLogger -> {
-                        binding.rvLogger.smoothScrollToPosition(0)
-                        openKeyboard(binding.etWithdrawAmount)
+                        binding.apply {
+                            rvLogger.smoothScrollToPosition(0)
+                            etWithdrawAmount.setShakeAnimationAndOpenKeyboard(
+                                backgroundDrawable,
+                                R.color.log_red,
+                                R.color.log_red_text
+                            )
+                        }
                     }
 
                     is TaskTwoViewModel.Logger.DepositLogger -> {
@@ -63,7 +82,10 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
                     }
 
                     is TaskTwoViewModel.Logger.WithdrawLogger -> {
-                        binding.rvLogger.smoothScrollToPosition(0)
+                        binding.apply {
+                            rvLogger.smoothScrollToPosition(0)
+                            etWithdrawAmount.background = drawable
+                        }
                     }
                 }
             }
@@ -74,26 +96,40 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
         }
 
         viewModel.denomination.observe(viewLifecycleOwner) { denominationList ->
+            val denominationTextViews = mapOf(
+                2000 to binding.tvTwoThousandQty,
+                500 to binding.tvFiveHundredQty,
+                200 to binding.tvTwoHundredQty,
+                100 to binding.tvOneHundredQty
+            )
+
             for (element in denominationList) {
-                when (element.value) {
-                    2000 -> {
-                        binding.tvTwoThousandQty.text = "${element.count}   |"
-                    }
-
-                    500 -> {
-                        binding.tvFiveHundredQty.text = "${element.count}   |"
-                    }
-
-                    200 -> {
-                        binding.tvTwoHundredQty.text = "${element.count}   |"
-                    }
-
-                    100 -> {
-                        binding.tvOneHundredQty.text = "${element.count}   |"
-                    }
-                }
+                val textView = denominationTextViews[element.value]
+                textView?.text = "x ${element.count}"
             }
         }
+    }
+
+    // Extension function for setting shake animation and opening the keyboard
+    private fun EditText.setShakeAnimationAndOpenKeyboard(
+        backgroundDrawable: GradientDrawable?,
+        textColorResId: Int,
+        strokeColorResId: Int
+    ) {
+        val textColor = setColor(context, textColorResId)
+        val strokeColor = setColor(context, strokeColorResId)
+
+        backgroundDrawable?.let {
+            it.setStroke(2, strokeColor)
+            it.setColor(textColor)
+        }
+        this.background = backgroundDrawable
+        val shakeAnimation = AnimationUtils.loadAnimation(context, R.anim.shake_anim)
+        this.startAnimation(shakeAnimation)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            openKeyboard(this)
+        }, shakeAnimation.duration)
     }
 
     private fun setListeners() {
@@ -117,12 +153,12 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun setZeroValues() {
+    private fun setAllDepositETValues(value: String) {
         binding.apply {
-            etTwoThousand.setText("0")
-            etFiveHundred.setText("0")
-            etTwoHundred.setText("0")
-            etOneHundred.setText("0")
+            etTwoThousand.setText(value)
+            etFiveHundred.setText(value)
+            etTwoHundred.setText(value)
+            etOneHundred.setText(value)
         }
     }
 
@@ -134,13 +170,24 @@ class TaskTwoFragment : Fragment(), View.OnClickListener {
                 }
 
                 tvDeposit.id -> {
-                    val notes = mapOf(
-                        2000 to etTwoThousand.text.toString().toInt(),
-                        500 to etFiveHundred.text.toString().toInt(),
-                        200 to etTwoHundred.text.toString().toInt(),
-                        100 to etOneHundred.text.toString().toInt()
-                    )
+                    val denominations = listOf(2000, 500, 200, 100)
+                    val notes = mutableMapOf<Int, Int>()
+
+                    for (denomination in denominations) {
+                        val editText = when (denomination) {
+                            2000 -> etTwoThousand
+                            500 -> etFiveHundred
+                            200 -> etTwoHundred
+                            100 -> etOneHundred
+                            else -> null
+                        }
+
+                        val count = editText?.text.toString().toIntOrNull() ?: 0
+                        notes[denomination] = count
+                    }
+
                     viewModel.viewModelScope.launch { viewModel.deposit(notes) }
+                    setAllDepositETValues("")
                     hideKeyboard()
                 }
 
