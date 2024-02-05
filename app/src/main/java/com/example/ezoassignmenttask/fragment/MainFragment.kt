@@ -9,16 +9,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.ezoassignmenttask.AppViewModel
-import com.example.ezoassignmenttask.MainActivity
 import com.example.ezoassignmenttask.MainTwoActivity
 import com.example.ezoassignmenttask.MyApplication
 import com.example.ezoassignmenttask.R
 import com.example.ezoassignmenttask.databinding.FragmentMainBinding
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.ConfigUpdate
-import com.google.firebase.remoteconfig.ConfigUpdateListener
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
-import com.google.firebase.remoteconfig.ktx.remoteConfig
 
 class MainFragment : Fragment(), View.OnClickListener {
     // Inside an Activity or Fragment
@@ -26,7 +20,7 @@ class MainFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
-private lateinit var sharedViewModel: AppViewModel
+    private lateinit var sharedViewModel: AppViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +57,7 @@ private lateinit var sharedViewModel: AppViewModel
             }
         })*/
         sharedViewModel = (requireActivity().application as MyApplication).sharedViewModel
-        sharedViewModel.featureFlag.observe(viewLifecycleOwner){flag->
+        sharedViewModel.featureFlag.observe(viewLifecycleOwner) { flag ->
             binding.tvTaskThree.isVisible = flag
         }
 
@@ -92,8 +86,9 @@ private lateinit var sharedViewModel: AppViewModel
                 tvTaskThree.id -> {
                     findNavController().navigate(R.id.action_mainFragment_to_taskThreeFragment)
                 }
+
                 ivFilter.id -> {
-                    val intent = Intent(requireActivity(),MainTwoActivity::class.java)
+                    val intent = Intent(requireActivity(), MainTwoActivity::class.java)
                     startActivity(intent)
                 }
             }
