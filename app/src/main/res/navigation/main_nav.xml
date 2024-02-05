@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_taskTwoFragment"
             app:destination="@id/taskTwoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_taskThreeFragment"
+            app:destination="@id/taskThreeFragment" />
     </fragment>
 
     <fragment
@@ -35,6 +38,16 @@
         tools:layout="@layout/fragment_task_two">
         <action
             android:id="@+id/action_taskTwoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskThreeFragment"
+        android:name="com.example.ezoassignmenttask.fragment.TaskThreeFragment"
+        android:label="fragment_task_three"
+        tools:layout="@layout/fragment_task_three">
+        <action
+            android:id="@+id/action_taskThreeFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

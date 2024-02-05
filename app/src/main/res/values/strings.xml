@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="task_one_title">Task One Solution</string>
     <string name="task_two_title">Task Two Solution</string>
+    <string name="task_three_title">Task Three Solution</string>
+    <string name="main_two_title">Activity Main Two</string>
 </resources>
