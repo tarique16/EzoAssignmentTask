@@ -9,4 +9,14 @@
     <color name="log_red">#F8F0F2</color>
     <color name="log_green">#F0F6ED</color>
     <color name="log_blue">#EEF3F6</color>
+
+
+    <!--Transparent-->
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black_dark">#DD000000</color>
+    <color name="transparent_black_mid">#80000000</color>
+    <color name="transparent_black_light">#0F000000</color>
+    <color name="transparent_white_light">#11FFFFFF</color>
+    <color name="transparent_grey_dusty_gray_dark">#89959595</color>
+    <color name="transparent_grey_dusty_gray_light">#29959595</color>
 </resources>

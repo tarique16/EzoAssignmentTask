@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.TaskThreeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#6200EE"
+        app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
+        app:layout_constraintEnd_toEndOf="@id/tv_toolbar_title"
+        app:layout_constraintStart_toStartOf="@id/tv_toolbar_title"
+        app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:contentDescription="@string/task_one_title"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
+        app:layout_constraintEnd_toStartOf="@id/tv_toolbar_title"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_8sdp"
+        android:padding="@dimen/_12sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/task_three_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_weight="9"
+        app:layout_constraintStart_toEndOf="@id/iv_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24sdp"
+        app:layout_constraintTop_toBottomOf="@id/view_one">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <TableRow
+                android:layout_weight="1"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector0"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector_tint0"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two"
+                    app:tint="@color/black" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector3"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector_tint3"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two"
+                    app:tint="@color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="1"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector_tint1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two"
+                    app:tint="@color/black" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector4"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector_tint4"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two"
+                    app:tint="@color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="1"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector2"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector_tint2"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two"
+                    app:tint="@color/black" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector5"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two" />
+
+                <ImageView
+                    android:id="@+id/iv_glide_vector_tint5"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_border"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_task_two"
+                    app:tint="@color/log_red_text" />
+            </TableRow>
+        </TableLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_8sdp"
-    android:background="@drawable/rectangle_border">
+    android:layout_marginTop="@dimen/_8sdp">
 
     <TextView
         android:id="@+id/tv_log"
@@ -16,4 +15,5 @@
         android:textSize="@dimen/_12sdp"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="WithdrawAmountLogs WithdrawDepositAmountLogs WithdrawAmountLogs WithdrawDepositAmountLogs" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

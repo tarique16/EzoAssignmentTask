@@ -44,20 +44,6 @@
         app:layout_constraintStart_toEndOf="@id/iv_back"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--<ImageView
-        android:id="@+id/iv_filter"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_filter"
-        app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/tv_toolbar_title"
-        app:layout_constraintTop_toTopOf="@id/tv_toolbar_title" />-->
-
-
     <ImageView
         android:id="@+id/iv_two_thousand"
         android:layout_width="@dimen/_124sdp"
@@ -72,28 +58,29 @@
     <TextView
         android:id="@+id/tv_two_thousand_qty"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:gravity="end"
+        android:layout_height="0dp"
+        android:gravity="start|center_vertical"
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_two_thousand"
-        app:layout_constraintEnd_toStartOf="@id/et_two_thousand"
+        app:layout_constraintEnd_toEndOf="@id/et_two_thousand"
         app:layout_constraintStart_toEndOf="@id/iv_two_thousand"
-        app:layout_constraintTop_toTopOf="@id/iv_two_thousand" />
+        app:layout_constraintTop_toBottomOf="@id/et_two_thousand" />
 
     <EditText
         android:id="@+id/et_two_thousand"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/rectangle_border"
+        android:hint="Enter Amount to Deposit"
         android:imeOptions="actionNext"
         android:inputType="number"
         android:maxLines="1"
+        android:padding="@dimen/_6sdp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toBottomOf="@id/iv_two_thousand"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_two_thousand_qty"
+        app:layout_constraintStart_toEndOf="@id/iv_two_thousand"
         app:layout_constraintTop_toTopOf="@id/iv_two_thousand" />
 
     <ImageView
@@ -110,28 +97,29 @@
     <TextView
         android:id="@+id/tv_five_hundred_qty"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:gravity="end"
+        android:layout_height="0dp"
+        android:gravity="start|center_vertical"
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_five_hundred"
-        app:layout_constraintEnd_toStartOf="@id/et_five_hundred"
+        app:layout_constraintEnd_toEndOf="@id/et_five_hundred"
         app:layout_constraintStart_toEndOf="@id/iv_five_hundred"
-        app:layout_constraintTop_toTopOf="@id/iv_five_hundred" />
+        app:layout_constraintTop_toBottomOf="@id/et_five_hundred" />
 
     <EditText
         android:id="@+id/et_five_hundred"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/rectangle_border"
+        android:hint="Enter Amount to Deposit"
         android:imeOptions="actionNext"
         android:inputType="number"
         android:maxLines="1"
+        android:padding="@dimen/_6sdp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toBottomOf="@id/iv_five_hundred"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_five_hundred_qty"
+        app:layout_constraintStart_toEndOf="@id/iv_five_hundred"
         app:layout_constraintTop_toTopOf="@id/iv_five_hundred" />
 
     <ImageView
@@ -148,28 +136,29 @@
     <TextView
         android:id="@+id/tv_two_hundred_qty"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:gravity="end"
+        android:layout_height="0dp"
+        android:gravity="start|center_vertical"
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_two_hundred"
-        app:layout_constraintEnd_toStartOf="@id/et_two_hundred"
+        app:layout_constraintEnd_toEndOf="@id/et_two_hundred"
         app:layout_constraintStart_toEndOf="@id/iv_two_hundred"
-        app:layout_constraintTop_toTopOf="@id/iv_two_hundred" />
+        app:layout_constraintTop_toBottomOf="@id/et_two_hundred" />
 
     <EditText
         android:id="@+id/et_two_hundred"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/rectangle_border"
+        android:hint="Enter Amount to Deposit"
         android:imeOptions="actionNext"
         android:inputType="number"
         android:maxLines="1"
+        android:padding="@dimen/_6sdp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toBottomOf="@id/iv_two_hundred"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_two_hundred_qty"
+        app:layout_constraintStart_toEndOf="@id/iv_two_hundred"
         app:layout_constraintTop_toTopOf="@id/iv_two_hundred" />
 
     <ImageView
@@ -186,28 +175,29 @@
     <TextView
         android:id="@+id/tv_one_hundred_qty"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:gravity="end"
+        android:layout_height="0dp"
+        android:gravity="start|center_vertical"
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/iv_one_hundred"
-        app:layout_constraintEnd_toStartOf="@id/et_one_hundred"
+        app:layout_constraintEnd_toEndOf="@id/et_one_hundred"
         app:layout_constraintStart_toEndOf="@id/iv_one_hundred"
-        app:layout_constraintTop_toTopOf="@id/iv_one_hundred" />
+        app:layout_constraintTop_toBottomOf="@id/et_one_hundred" />
 
     <EditText
         android:id="@+id/et_one_hundred"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/rectangle_border"
+        android:hint="Enter Amount to Deposit"
         android:imeOptions="actionNext"
         android:inputType="number"
         android:maxLines="1"
+        android:padding="@dimen/_6sdp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toBottomOf="@id/iv_one_hundred"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_one_hundred_qty"
+        app:layout_constraintStart_toEndOf="@id/iv_one_hundred"
         app:layout_constraintTop_toTopOf="@id/iv_one_hundred" />
 
     <TextView
@@ -226,27 +216,27 @@
         android:id="@+id/tv_total"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="end"
+        android:gravity="start"
         android:textSize="@dimen/_16sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/tv_total_title"
-        app:layout_constraintEnd_toEndOf="@id/tv_one_hundred_qty"
+        app:layout_constraintEnd_toStartOf="@id/tv_deposit"
         app:layout_constraintStart_toEndOf="@id/tv_total_title"
         app:layout_constraintTop_toTopOf="@id/tv_total_title" />
 
     <TextView
         android:id="@+id/tv_deposit"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="#286090"
         android:gravity="center"
+        android:paddingHorizontal="@dimen/_16sdp"
         android:text="Deposit"
         android:textColor="@color/white"
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/tv_total_title"
         app:layout_constraintEnd_toEndOf="@id/et_one_hundred"
-        app:layout_constraintStart_toStartOf="@id/et_one_hundred"
         app:layout_constraintTop_toTopOf="@id/tv_total_title" />
 
     <EditText
@@ -254,10 +244,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/rectangle_border"
         android:hint="Enter Amount to withdraw"
         android:imeOptions="actionNext"
         android:inputType="number"
         android:maxLines="1"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:paddingVertical="@dimen/_8sdp"
         app:layout_constraintEnd_toStartOf="@id/tv_withdraw"
         app:layout_constraintStart_toStartOf="@id/tv_total_title"
         app:layout_constraintTop_toBottomOf="@id/tv_total_title" />
@@ -309,10 +303,11 @@
         android:clipToPadding="true"
         android:paddingBottom="@dimen/_18sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/tv_log_title"
         app:layout_constraintStart_toStartOf="@id/tv_log_title"
         app:layout_constraintTop_toBottomOf="@id/tv_withdraw_log"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:itemCount="2"
         tools:listitem="@layout/recycler_item_task_two_logs" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
