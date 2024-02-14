@@ -1,19 +1,16 @@
 package com.example.ezoassignmenttask.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.PopupWindow
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.load
 import com.bumptech.glide.Glide
@@ -40,12 +37,6 @@ class TaskThreeFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val imageLoader = ImageLoader.Builder(requireActivity())
-            .components {
-                add(SvgDecoder.Factory())
-            }
-            .build()
-
         val url0 = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/aa.svg"
         val url1 = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/adobe.svg"
         val url2 = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/alphachannel.svg"
@@ -59,6 +50,7 @@ class TaskThreeFragment : Fragment(), View.OnClickListener {
             setImageView(ivGlideVector1, ivGlideVectorTint1, url1)
             setImageView(ivGlideVector2, ivGlideVectorTint2, url2)
             setImageView(ivGlideVector3, ivGlideVectorTint3, url3)
+            setImageViewGLide(ivGlideVector4, ivGlideVectorTint4, url4)
             setImageView(ivGlideVector4, ivGlideVectorTint4, url4)
             setImageViewGLide(ivGlideVector5, ivGlideVectorTint5, url5)
             ivBack.setOnClickListener(this@TaskThreeFragment)
