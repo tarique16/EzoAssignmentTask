@@ -5,5 +5,7 @@
     <string name="task_one_title">Task One Solution</string>
     <string name="task_two_title">Task Two Solution</string>
     <string name="task_three_title">Task Three Solution</string>
+    <string name="task_four_title">Task Four Solution</string>
     <string name="main_two_title">Activity Main Two</string>
+    <string name="crash">Crash</string>
 </resources>

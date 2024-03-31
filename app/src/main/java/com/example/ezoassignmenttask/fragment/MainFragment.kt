@@ -68,6 +68,8 @@ class MainFragment : Fragment(), View.OnClickListener {
             tvTaskOne.setOnClickListener(this@MainFragment)
             tvTaskTwo.setOnClickListener(this@MainFragment)
             tvTaskThree.setOnClickListener(this@MainFragment)
+            tvTaskFour.setOnClickListener(this@MainFragment)
+            tvCrash.setOnClickListener(this@MainFragment)
             ivFilter.setOnClickListener(this@MainFragment)
         }
     }
@@ -85,6 +87,14 @@ class MainFragment : Fragment(), View.OnClickListener {
 
                 tvTaskThree.id -> {
                     findNavController().navigate(R.id.action_mainFragment_to_taskThreeFragment)
+                }
+
+                tvTaskFour.id -> {
+                    findNavController().navigate(R.id.action_mainFragment_to_taskFourFragment)
+                }
+
+                tvCrash.id -> {
+                    throw RuntimeException("Test Crash") // Force a crash
                 }
 
                 ivFilter.id -> {
