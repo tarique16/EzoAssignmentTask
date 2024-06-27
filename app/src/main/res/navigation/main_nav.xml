@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_mainFragment_to_taskFourFragment"
             app:destination="@id/taskFourFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_coordinatorLayoutFragment"
+            app:destination="@id/coordinatorLayoutFragment" />
     </fragment>
 
     <fragment
@@ -61,6 +64,16 @@
         tools:layout="@layout/fragment_task_four">
         <action
             android:id="@+id/action_taskFourFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/coordinatorLayoutFragment"
+        android:name="com.example.ezoassignmenttask.fragment.CoordinatorLayoutFragment"
+        android:label="fragment_coordinator_layout"
+        tools:layout="@layout/fragment_coordinator_layout">
+        <action
+            android:id="@+id/action_coordinatorLayoutFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ViewPagerFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="@dimen/_6sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_anchor="@id/tl_page_selector"
+        app:layout_anchorGravity="top|end"
+        tools:itemCount="2"
+        tools:listitem="@layout/recycle_item_task_one" />
+
+    <ProgressBar
+        android:id="@+id/pb_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_135sdp"
+        android:indeterminate="true"
+        android:progressTint="@color/log_red_text" />
+</FrameLayout>

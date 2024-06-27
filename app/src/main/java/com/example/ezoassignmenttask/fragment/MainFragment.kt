@@ -94,7 +94,16 @@ class MainFragment : Fragment(), View.OnClickListener {
                 }
 
                 tvCrash.id -> {
-                    throw RuntimeException("Test Crash") // Force a crash
+                    /*val intent = Intent(requireActivity(), ScrollingActivity()::class.java)
+
+                    startActivityForResult(intent, 1)
+
+                    requireActivity().overridePendingTransition(
+                        androidx.navigation.ui.R.anim.nav_default_enter_anim,
+                        androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    )*/
+
+                    findNavController().navigate(R.id.action_mainFragment_to_coordinatorLayoutFragment)
                 }
 
                 ivFilter.id -> {
