@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_mainFragment_to_coordinatorLayoutFragment"
             app:destination="@id/coordinatorLayoutFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_videoPlayerFragment"
+            app:destination="@id/videoPlayerFragment" />
     </fragment>
 
     <fragment
@@ -74,6 +77,16 @@
         tools:layout="@layout/fragment_coordinator_layout">
         <action
             android:id="@+id/action_coordinatorLayoutFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="com.example.ezoassignmenttask.fragment.VideoPlayerFragment"
+        android:label="fragment_video_player"
+        tools:layout="@layout/fragment_video_player">
+        <action
+            android:id="@+id/action_videoPlayerFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

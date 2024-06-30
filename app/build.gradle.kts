@@ -95,4 +95,6 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics-ktx") // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-config-ktx")
+
+    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
 }

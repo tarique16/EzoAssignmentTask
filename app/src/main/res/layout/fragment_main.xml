@@ -134,4 +134,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_video"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="#9FB5E182"
+        android:gravity="center"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/video_player"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_crash"
+        app:layout_constraintStart_toStartOf="@id/tv_crash"
+        app:layout_constraintEnd_toEndOf="@id/tv_crash"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,6 +70,7 @@ class MainFragment : Fragment(), View.OnClickListener {
             tvTaskThree.setOnClickListener(this@MainFragment)
             tvTaskFour.setOnClickListener(this@MainFragment)
             tvCrash.setOnClickListener(this@MainFragment)
+            tvVideo.setOnClickListener(this@MainFragment)
             ivFilter.setOnClickListener(this@MainFragment)
         }
     }
@@ -104,6 +105,9 @@ class MainFragment : Fragment(), View.OnClickListener {
                     )*/
 
                     findNavController().navigate(R.id.action_mainFragment_to_coordinatorLayoutFragment)
+                }
+                tvVideo.id -> {
+                    findNavController().navigate(R.id.action_mainFragment_to_videoPlayerFragment)
                 }
 
                 ivFilter.id -> {

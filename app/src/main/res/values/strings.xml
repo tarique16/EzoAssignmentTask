@@ -8,6 +8,7 @@
     <string name="task_four_title">Task Four Solution</string>
     <string name="main_two_title">Activity Main Two</string>
     <string name="crash">Crash</string>
+    <string name="video_player">Video Player</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
