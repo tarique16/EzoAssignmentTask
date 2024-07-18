@@ -18,11 +18,11 @@ import android.widget.ImageView
 import androidx.core.animation.doOnStart
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
+import androidx.media3.common.VideoSize
+import androidx.media3.exoplayer.ExoPlayer
 import com.example.ezoassignmenttask.databinding.FragmentVideoPlayerBinding
-import com.google.android.exoplayer2.ExoPlayer
-import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.video.VideoSize
 
 class VideoPlayerFragment : Fragment() {
 
@@ -41,18 +41,20 @@ class VideoPlayerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            // Initialize ExoPlayer
             player = ExoPlayer.Builder(requireActivity()).build()
             playerView.player = player
-
-            // Set media source
+            val liveUrl =
+                "https://d2s7v2mzcfdtyp.cloudfront.net/event/c9f0f895fb98ab9159f51fd0297e236d/card/174iKC9dusIBFAbTCkiDwACBSgvQJ5GAPe9EFuna.mp4"
+            val stagingUrl =
+                "https://d2s7v2mzcfdtyp.cloudfront.net/event/f457c545a9ded88f18ecee47145a72c0/card/Pzs44FQZpLEIwVtjpey2Aycte7rHjf1A2wWQUpj7.mp4"
+            val live2 =
+                "https://d2s7v2mzcfdtyp.cloudfront.net/event/c9f0f895fb98ab9159f51fd0297e236d/card/W0l0MhY3ryKDBj9j80FhP5JeJa1fyHRssFXC57hD.mp4"
             val mediaItem =
-                MediaItem.fromUri(Uri.parse("https://d2s7v2mzcfdtyp.cloudfront.net/event/f457c545a9ded88f18ecee47145a72c0/card/Pzs44FQZpLEIwVtjpey2Aycte7rHjf1A2wWQUpj7.mp4"))
-            player.setMediaItem(mediaItem)
-            player.prepare()
-
-            // Set repeat mode to loop the video
-            player.repeatMode = Player.REPEAT_MODE_ALL
+                MediaItem.fromUri(Uri.parse(liveUrl))
+            player.apply {
+                setMediaItem(mediaItem)
+                prepare()
+                repeatMode = Player.REPEAT_MODE_ALL
 
             // Show loader while loading
             player.addListener(object : Player.Listener {
@@ -64,37 +66,30 @@ class VideoPlayerFragment : Fragment() {
                     }
                 }
 
-                override fun onVideoSizeChanged(videoSize: VideoSize) {
-                    // Adjust the PlayerView height to match the video height
-                    val aspectRatio = videoSize.width / videoSize.height.toFloat()
-                    increaseViewSize(binding.playerView,(binding.playerView.width / aspectRatio).toInt())
-                    /*layoutParams.height = (binding.playerView.width / aspectRatio).toInt()
-                    binding.playerView.layoutParams = layoutParams*/
+                    override fun onVideoSizeChanged(videoSize: VideoSize) {
+                        val aspectRatio = videoSize.width / videoSize.height.toFloat()
+                        increaseViewSize(
+                            binding.playerView,
+                            (binding.playerView.width / aspectRatio).toInt()
+                        )
+                    }
+                })
+                ivPlayPause.visibility = GONE
+                playerView.setOnClickListener {
+                    if (isPlaying) {
+                        pause()
+                    } else {
+                        play()
+                    }
+                    ivPlayPause.visibility = VISIBLE
+                    fadeOutAndHideImage(ivPlayPause)
                 }
-            })
-            ivPlayPause.visibility = GONE
-            // Play/pause toggle on PlayerView click
-            playerView.setOnClickListener {
-                if (player.isPlaying) {
-                    player.pause()
-                } else {
-                    player.play()
-                }
-                ivPlayPause.visibility = VISIBLE
-                fadeOutAndHideImage(ivPlayPause)
             }
+
         }
     }
+
     fun increaseViewSize(view: View, increaseValue: Int) {
-        /*val valueAnimator = ValueAnimator.ofInt(increaseValue)
-        valueAnimator.duration = 750L
-        valueAnimator.addUpdateListener {
-            val animatedValue = valueAnimator.animatedValue as Int
-            val layoutParams = view.layoutParams
-            layoutParams.height = animatedValue
-            view.layoutParams = layoutParams
-        }
-        valueAnimator.start()*/
         val valueAnimator = ValueAnimator.ofInt(increaseValue).apply {
             addUpdateListener {
                 val params = view.layoutParams
@@ -121,6 +116,7 @@ class VideoPlayerFragment : Fragment() {
             start()
         }
     }
+
     private fun fadeOutAndHideImage(img: ImageView) {
         val fadeOut = AlphaAnimation(1F, 0F)
         fadeOut.interpolator = AccelerateInterpolator()

@@ -91,10 +91,16 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics-ktx") // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-config-ktx")
 
-    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
+    //ExoPlayer
+    implementation("androidx.media3:media3-exoplayer:1.3.1")
+    implementation("androidx.media3:media3-exoplayer-dash:1.3.1")
+    implementation("androidx.media3:media3-ui:1.3.1")
+
+    //Lotte
+    implementation("com.airbnb.android:lottie:6.4.1")
 }
